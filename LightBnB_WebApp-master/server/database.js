@@ -80,10 +80,10 @@ const getAllProperties = function(options, limit = 10) {
   LIMIT $1
   `;
   const values = [limit];
-
-  pool.query(queryString, values)
-    .then(res => console.log(res.rows))
-    .catch(err => console.error('query error', err));
+  return pool
+    .query(queryString, values)
+    .then(res => (res.rows))
+    .catch(err => err);
 }
 exports.getAllProperties = getAllProperties;
 
